@@ -1,0 +1,106 @@
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f6f8f9;
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #f6f8f9 0%,
+    #e5ebee 30%,
+    #d7dee3 60%,
+    #f5f7f9 100%
+  );
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  overflow-y: auto; /* Enable vertical scrolling when necessary */
+}
+
+#drum-machine {
+  text-align: center;
+}
+
+#drum-machine h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#display {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.pads-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 360px; /* Adjusted maximum width to fit three pads per row */
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.drum-pad {
+  width: calc(33.33% - 20px); /* Adjusted width to fit three pads per row */
+  height: 80px; /* Reduced height for smaller pads */
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #555;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.drum-pad:hover {
+  background-color: #666;
+}
+
+.drum-pad::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.drum-pad:hover::before {
+  display: none;
+}
+
+.drum-pad .clip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .pads-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .drum-pad {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 320px) {
+  .drum-pad {
+    width: calc(100% - 20px);
+  }
+}
